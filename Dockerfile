@@ -6,6 +6,12 @@ COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 
 ARG DEV=false
+
+RUN apk update \
+    && apk add --virtual build-deps gcc python3-dev musl-dev \
+    && apk add --no-cache mariadb-dev
+
+
 RUN python -m venv /venv && \
 	/venv/bin/pip install --upgrade pip && \
     /venv/bin/pip install -r /tmp/requirements.txt && \
