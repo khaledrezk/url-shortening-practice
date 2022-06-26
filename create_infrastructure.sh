@@ -8,3 +8,7 @@ cd terraform
 terraform init
 terraform apply -auto-approve
 terraform output -json > ../app/.terraform_out.json
+cd ..
+docker-compose build
+docker-compose up
+
