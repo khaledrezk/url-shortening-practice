@@ -26,3 +26,7 @@ output "vpc_id" {
 output "my_ip" {
   value = chomp(data.http.my_ipv4.response_body)
 }
+
+output "web_ip" {
+  value = aws_instance.web.public_ip
+}
