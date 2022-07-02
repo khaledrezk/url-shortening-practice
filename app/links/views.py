@@ -1,5 +1,6 @@
 from django.db.utils import IntegrityError
 import json
+import requests
 
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotFound, HttpResponseRedirect, HttpResponseServerError, JsonResponse
 from django.shortcuts import render
@@ -7,7 +8,8 @@ from .models import Link, gen_short_url
 # Create your views here.
 
 RETRIES = 5 # rehash to get a new short in case of collision.
-HOSTNAME = "127.0.0.1:8000"#Update when having a domain name. 
+#Update when having a domain name. 
+HOSTNAME = requests.get("https://ipv4.icanhazip.com/").text.strip() + ":8000"
 def redirect(request, short_url):
     res = Link.objects.filter(short_url=short_url)
     if len(res) == 0:
