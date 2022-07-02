@@ -26,7 +26,6 @@ terraform init
 #Create db first as we will need it for server
 terraform apply -target=aws_db_instance.default -auto-approve
 terraform output -json > ../app/.terraform_out.json
-
 #Copy the codebase to /tmp/repo
 REPO_PATH="/tmp/repo"
 rm -rf $REPO_PATH
