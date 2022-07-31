@@ -30,3 +30,6 @@ output "my_ip" {
 output "web_ip" {
   value = aws_instance.web.public_ip
 }
+output "ami_id" {
+  value = data.aws_ami.backend.id
+}

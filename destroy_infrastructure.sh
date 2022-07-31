@@ -12,3 +12,6 @@ terraform destroy -auto-approve
 aws ec2 delete-key-pair --key-name $key_pair
 aws s3 rm s3://$terraform_s3_bucket --recursive
 aws s3api delete-bucket --bucket $terraform_s3_bucket --region us-east-1
+
+cd ..
+./destroy_amis.sh

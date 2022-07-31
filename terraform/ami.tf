@@ -1,15 +1,8 @@
-data "aws_ami" "ubuntu20" {
+data "aws_ami" "backend" {
   most_recent = true
-
+  owners = ["self"]
   filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    name = "name"
+    values = ["backend"]
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
 }

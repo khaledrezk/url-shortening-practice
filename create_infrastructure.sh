@@ -33,4 +33,5 @@ cp -r .. $REPO_PATH
 rm $REPO_PATH/terraform/.terraform -rf # Huge directory and can be generated when needed.
 
 #Apply remaining steps
+packer build ../server_ami.pkr.hcl
 terraform apply -auto-approve
