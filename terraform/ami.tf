@@ -1,8 +1,8 @@
 data "aws_ami" "backend" {
   most_recent = true
-  owners = ["self"]
+  owners      = ["self"]
   filter {
-    name = "name"
+    name   = "name"
     values = ["backend"]
   }
 }
